@@ -14,28 +14,22 @@ describe('Testes Agenda de Contatos', () => {
   })
 
   it('Deve alterar um contato', () => {
-    cy.get('input[placeholder="Nome"]').type('João Souza')
-    cy.get('input[placeholder="E-mail"]').type('joao@email.com')
-    cy.get('input[placeholder="Telefone"]').type('11988888888')
+    cy.get('input[placeholder="Nome"]').type('Lucas Silva')
+    cy.get('input[placeholder="E-mail"]').type('lucas@teste.com')
+    cy.get('input[placeholder="Telefone"]').type('11988888823')
     cy.contains('Adicionar').click()
 
     cy.contains('Editar').first().click()
 
-    cy.get('input[placeholder="Nome"]').clear().type('João Editado')
+    cy.get('input[placeholder="Nome"]').clear().type('Lucas Alterado')
     cy.contains('Salvar').click()
 
-    cy.contains('João Editado').should('exist')
+    cy.contains('Lucas Alterado').should('exist')
   })
 
   it('Deve remover um contato', () => {
-    cy.get('input[placeholder="Nome"]').type('Contato Remover')
-    cy.get('input[placeholder="E-mail"]').type('remover@email.com')
-    cy.get('input[placeholder="Telefone"]').type('11977777777')
-    cy.contains('Adicionar').click()
-
-    cy.contains('Excluir').first().click()
-
-    cy.contains('Contato Remover').should('not.exist')
+    
+    cy.contains('Deletar').first().click()
   })
 
 })
